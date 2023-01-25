@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "FUTgenie",
+  "description": "Stop wasting money on packs and start building the team of your dreams, set your filter and let FUTgenie do the rest!",
+  "version": "1.13",
+  "action": {
+    "default_icon": "icon16.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "eventPage.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.ea.com/*fifa/ultimate-team/web-app/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "permissions": ["storage", "identity", "identity.email", "activeTab"],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "injected.js",
+        "fab-captcha.mp3",
+        "fab-cardBought.mp3",
+        "fab-cardSeen.mp3",
+        "fab-cycleEnd.mp3",
+        "fab-stopped.mp3",
+        "original-captcha.mp3",
+        "original-cardBought.mp3",
+        "original-cardSeen.mp3",
+        "original-cycleEnd.mp3",
+        "original-stopped.mp3",
+        "joe-captcha.mp3",
+        "joe-cardBought.mp3",
+        "joe-cardSeen.mp3",
+        "joe-cycleEnd.mp3",
+        "joe-stopped.mp3"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
